@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ThreatMap from '@/components/ThreatMap';
 import ThreatLevel from '@/components/ThreatLevel';
 import IncidentFeed from '@/components/IncidentFeed';
+import NetworkTraffic from '@/components/NetworkTraffic';
 
 export default function Dashboard() {
   const [time, setTime] = useState('');
@@ -87,9 +88,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Network Traffic Analysis
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 250 }}>
-            Awaiting network telemetry...
-          </div>
+          <NetworkTraffic />
         </div>
 
         <div className="col-span-4 soc-panel" style={{ minHeight: 300 }}>
