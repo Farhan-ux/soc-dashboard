@@ -5,6 +5,7 @@ import IncidentFeed from '@/components/IncidentFeed';
 import NetworkTraffic from '@/components/NetworkTraffic';
 import TopAttackers from '@/components/TopAttackers';
 import FirewallLogs from '@/components/FirewallLogs';
+import VulnerabilityScanner from '@/components/VulnerabilityScanner';
 
 export default function Dashboard() {
   const [time, setTime] = useState('');
@@ -107,6 +108,25 @@ export default function Dashboard() {
             Firewall Log Stream
           </div>
           <FirewallLogs />
+        </div>
+
+        {/* Row 3 */}
+        <div className="col-span-8 soc-panel" style={{ minHeight: 300 }}>
+          <div className="soc-panel-header">
+            <span className="indicator" />
+            Vulnerability Scanner
+          </div>
+          <VulnerabilityScanner />
+        </div>
+
+        <div className="col-span-4 soc-panel" style={{ minHeight: 300 }}>
+          <div className="soc-panel-header">
+            <span className="indicator" />
+            System Health
+          </div>
+          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 250 }}>
+            Probing infrastructure sensors...
+          </div>
         </div>
       </div>
     </div>
