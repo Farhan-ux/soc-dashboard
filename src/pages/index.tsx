@@ -6,6 +6,7 @@ import NetworkTraffic from '@/components/NetworkTraffic';
 import TopAttackers from '@/components/TopAttackers';
 import FirewallLogs from '@/components/FirewallLogs';
 import VulnerabilityScanner from '@/components/VulnerabilityScanner';
+import SystemHealth from '@/components/SystemHealth';
 
 export default function Dashboard() {
   const [time, setTime] = useState('');
@@ -124,9 +125,7 @@ export default function Dashboard() {
             <span className="indicator" />
             System Health
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 250 }}>
-            Probing infrastructure sensors...
-          </div>
+          <SystemHealth />
         </div>
       </div>
     </div>
