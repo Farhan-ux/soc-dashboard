@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --soc-bg: #0a0e17;
+  --soc-panel: #0f1520;
+  --soc-border: #1a2535;
+  --soc-cyber: #00f0ff;
+  --soc-green: #00ff88;
+  --soc-red: #ff2d55;
+  --soc-amber: #ffb800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--soc-bg);
+  color: #c8d6e5;
+  font-family: 'JetBrains Mono', monospace;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--soc-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--soc-border);
+  border-radius: 3px;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 240, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.6); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes data-flow {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.soc-panel {
+  background: var(--soc-panel);
+  border: 1px solid var(--soc-border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.soc-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--soc-cyber), transparent);
+  opacity: 0.6;
+}
+
+.soc-panel-header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--soc-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--soc-cyber);
+}
+
+.soc-panel-header .indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--soc-green);
+  animation: pulse-glow 2s infinite;
+}
+
+.threat-critical { color: #ff2d55; }
+.threat-high { color: #ff6b35; }
+.threat-medium { color: #ffb800; }
+.threat-low { color: #00ff88; }
+
+.scanline-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.01) 2px,
+    rgba(0, 240, 255, 0.01) 4px
+  );
+  z-index: 9999;
+}
