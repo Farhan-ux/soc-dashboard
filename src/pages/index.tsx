@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import ThreatMap from '@/components/ThreatMap';
+import ThreatLevel from '@/components/ThreatLevel';
+import IncidentFeed from '@/components/IncidentFeed';
 
 export default function Dashboard() {
   const [time, setTime] = useState('');
@@ -59,9 +62,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Global Threat Map
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 290 }}>
-            Initializing geospatial threat intelligence...
-          </div>
+          <ThreatMap />
         </div>
 
         <div className="col-span-3 soc-panel" style={{ minHeight: 340 }}>
@@ -69,9 +70,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Threat Level
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 290 }}>
-            Loading threat assessment...
-          </div>
+          <ThreatLevel />
         </div>
 
         <div className="col-span-4 soc-panel" style={{ minHeight: 340 }}>
@@ -79,9 +78,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Live Incident Feed
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 290 }}>
-            Connecting to SIEM feed...
-          </div>
+          <IncidentFeed />
         </div>
 
         {/* Row 2 */}
