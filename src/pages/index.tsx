@@ -3,6 +3,8 @@ import ThreatMap from '@/components/ThreatMap';
 import ThreatLevel from '@/components/ThreatLevel';
 import IncidentFeed from '@/components/IncidentFeed';
 import NetworkTraffic from '@/components/NetworkTraffic';
+import TopAttackers from '@/components/TopAttackers';
+import FirewallLogs from '@/components/FirewallLogs';
 
 export default function Dashboard() {
   const [time, setTime] = useState('');
@@ -96,9 +98,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Top Attackers
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 250 }}>
-            Compiling attacker profiles...
-          </div>
+          <TopAttackers />
         </div>
 
         <div className="col-span-4 soc-panel" style={{ minHeight: 300 }}>
@@ -106,9 +106,7 @@ export default function Dashboard() {
             <span className="indicator" />
             Firewall Log Stream
           </div>
-          <div className="p-3 text-soc-muted text-xs flex items-center justify-center" style={{ minHeight: 250 }}>
-            Binding to firewall API...
-          </div>
+          <FirewallLogs />
         </div>
       </div>
     </div>
